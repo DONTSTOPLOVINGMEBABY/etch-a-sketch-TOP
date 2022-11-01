@@ -1,0 +1,7 @@
+Some useful links for the project. 
+
+
+http://bluegalaxy.info/codewalk/2018/03/01/html-css-create-square-grid-using-css-grid/
+
+https://stackoverflow.com/questions/25489308/javascript-create-number-of-divs-in-loop
+

@@ -2,6 +2,7 @@ const container = document.querySelector(".container");
 const grid = document.querySelector(".grid");
 const slider = document.getElementById("myRange");
 const output = document.getElementById("slidervalue");
+const button = document.getElementById("reset-button");
 
 
 
@@ -34,10 +35,10 @@ function draw () {
 }
 
 
-function startup (grid_size) {
+function startup (grid_size=16) {
     make_grid(grid_size);
     draw() ;    
-    output.textContent = "16 x 16"; 
+    output.textContent = `${grid_size} x ${grid_size}`; 
 }
 
 slider.oninput = function () {
@@ -50,4 +51,8 @@ function reset() {
     while (grid.firstChild) grid.removeChild( grid.firstChild );
 }
 
-startup(16);
+startup();
+button.addEventListener('click', () => {
+    reset();
+    startup(slider.value);
+})

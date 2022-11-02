@@ -9,21 +9,20 @@ body {
 .container {
     background:black;
     display: inline-block;
-    border: 5px solid black;;
+    width: 400px;
+    height: 400px;
+    height: fit-content;
+    border: 5px solid black;
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(4, 80px); 
-    grid-template-rows: repeat(4,80px); 
+    grid-template-columns: repeat(8, 120px); 
+    grid-template-rows: repeat(8,120px); 
 }
 
 .cell {
-    justify-content: center;
-    align-items: center;
-    display: flex;
     font-family: Arial;
-    font-size: 3rem;
     font-weight: bold;
     background: white;
 }

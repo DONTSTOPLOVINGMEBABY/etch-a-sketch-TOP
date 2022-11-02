@@ -1,5 +1,7 @@
 const container = document.querySelector(".container");
 const grid = document.querySelector(".grid");
+const slider = document.getElementById("myRange");
+const output = document.getElementById("slidervalue");
 
 
 
@@ -25,14 +27,27 @@ function draw () {
 
         cell.addEventListener('mouseenter', () => {
             if (cell.style.backgroundColor != 'black'){cell.style.cssText = "background-color: black;";}
-            //else {cell.style.cssText = "background-color: white"};
+            //else {cell.style.cssText = "background-color: white"};  !!! this will change the color back to white if square is hovered over again
         });
 
     });
 }
 
 
-let grid_size = 17;
+function startup (grid_size) {
+    make_grid(grid_size);
+    draw() ;    
+    output.textContent = "16 x 16"; 
+}
 
-make_grid(grid_size);
-draw() ;
+slider.oninput = function () {
+    reset();
+    startup(this.value);
+    output.textContent = `${this.value} x ${this.value}`;
+}
+
+function reset() {
+    while (grid.firstChild) grid.removeChild( grid.firstChild );
+}
+
+startup(16);

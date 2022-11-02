@@ -3,21 +3,36 @@ const grid = document.querySelector(".grid");
 
 
 
-function init_grid (grid_size) {
+function make_grid (grid_size) {
 
     let array = Array() ; 
-    
-    for (let i = 0 ; i < grid_size ; i++){
+
+    grid.style.gridTemplateColumns = `repeat(${grid_size}, ${400/grid_size}px)`;
+    grid.style.gridTemplateRows = `repeat(${grid_size}, ${400/grid_size}px)`;
+
+    for (let i = 0 ; i < (grid_size * grid_size) ; i++){
         array[i] = document.createElement('div');
         array[i].classList.add("cell");
-        array[i].textContent = `${i}`; 
         grid.append(array[i]);
         array[i].setAttribute('id', `${i}`)
     }
 }
 
+function draw () {
+    const cells = document.querySelectorAll(".cell");
+
+    cells.forEach( (cell) => {
+
+        cell.addEventListener('mouseenter', () => {
+            if (cell.style.backgroundColor != 'black'){cell.style.cssText = "background-color: black;";}
+            //else {cell.style.cssText = "background-color: white"};
+        });
+
+    });
+}
 
 
+let grid_size = 17;
 
-init_grid(16)
-
+make_grid(grid_size);
+draw() ;
